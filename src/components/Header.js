@@ -7,10 +7,13 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { NETFLIX_LOGO, USER_LOGO } from "../utils/constant";
+import { toggleGptSearchView } from "../utils/gptSlice";
 
 const Header = () => {
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
+  const showGpt = useSelector((store) => store.gpt.showGpt);
+
   const handleSignout = () => {
     signOut(auth)
       .then(() => {
@@ -40,8 +43,11 @@ const Header = () => {
     };
   }, []);
 
+  const handleGptSearchClick = () => {
+    dispatch(toggleGptSearchView());
+  };
   return (
-    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from black z-30 flex justify-between">
+    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from black z-30 flex justify-between ">
       <img
         className="w-44 md:w-32 lg:w-48"
         src={NETFLIX_LOGO}
@@ -49,10 +55,16 @@ const Header = () => {
       />
       {user !== null && (
         <div className="flex">
+          <button
+            className="p-2 m-4 bg-purple-500 text-white rounded-lg"
+            onClick={handleGptSearchClick}
+          >
+            {showGpt ? "Home " : "GPT Search"}
+          </button>
           <img className="w-16 h-16 m-2 p-2" src={USER_LOGO} alt="user-logo" />
           <button
             onClick={handleSignout}
-            className="cursor-pointer  text-red-500"
+            className="cursor-pointer text-2xl  text-red-700"
           >
             Sign Out
           </button>

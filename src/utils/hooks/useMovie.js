@@ -1,9 +1,10 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { API_OPTIONS } from "../constant";
 import { addTrailer } from "../moviesSlice";
 import { useEffect } from "react";
 
 const useMovie = (id) => {
+  const trailerVideo = useSelector((store) => store.movies.trailerVideo);
   const dispatch = useDispatch();
   const getMovieVideos = async () => {
     const data = await fetch(
@@ -15,7 +16,7 @@ const useMovie = (id) => {
     dispatch(addTrailer(trailer[0]));
   };
   useEffect(() => {
-    getMovieVideos();
+    !trailerVideo && getMovieVideos();
   }, []);
 };
 export default useMovie;

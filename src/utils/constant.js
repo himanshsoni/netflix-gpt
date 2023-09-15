@@ -8,9 +8,9 @@ export const API_OPTIONS = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjOWRiYjdhYjY2YjI4MzhhYjQzM2M5NjFlNDFkMTIxNiIsInN1YiI6IjY0ZjU5Yjk4MTIxOTdlMDBmZWE5MzE5NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.dW7ZZ_9LIY_mB_YA3Wzodk_qO3oj-dlDUAfDT6MOa_g",
+    Authorization: "Bearer " + process.env.REACT_APP_TMDB_KEY,
   },
 };
 
 export const TMDB_IMG_URL = "https://image.tmdb.org/t/p/w500/";
+export const OPEN_AI_KEY = process.env.REACT_APP_OPEN_AI_KEY;
