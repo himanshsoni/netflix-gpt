@@ -47,24 +47,28 @@ const Header = () => {
     dispatch(toggleGptSearchView());
   };
   return (
-    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from black z-30 flex justify-between ">
+    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from black z-30 flex flex-col md:flex-row justify-center md:justify-between ">
       <img
-        className="w-44 md:w-32 lg:w-48"
+        className="w-44 md:w-32 lg:w-48 mx-auto md:mx-0"
         src={NETFLIX_LOGO}
         alt="netflix-logo"
       />
       {user !== null && (
-        <div className="flex">
+        <div className="flex justify-between md:flex">
           <button
-            className="p-2 m-4 bg-purple-500 text-white rounded-lg"
+            className="p-2 m-4 bg-red-500 text-white rounded-lg"
             onClick={handleGptSearchClick}
           >
             {showGpt ? "Home " : "GPT Search"}
           </button>
-          <img className="w-16 h-16 m-2 p-2" src={USER_LOGO} alt="user-logo" />
+          <img
+            className="hidden md: inline-block w-16 h-16 m-2 p-2"
+            src={USER_LOGO}
+            alt="user-logo"
+          />
           <button
             onClick={handleSignout}
-            className="cursor-pointer text-2xl  text-red-700"
+            className="cursor-pointer p-2 m-4 text-2xl bg-red-500  text-white"
           >
             Sign Out
           </button>
