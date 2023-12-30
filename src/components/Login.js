@@ -18,6 +18,7 @@ const Login = () => {
   const email = useRef(null);
   const password = useRef(null);
   const name = useRef(null);
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -110,9 +111,15 @@ const Login = () => {
         <input
           ref={password}
           className="p-4 my-4 w-full bg-gray-700"
-          type="password"
+          type={showPassword ? "password" : "text"}
           placeholder="Password"
         />
+        <span
+          onClick={() => setShowPassword(!showPassword)}
+          class="material-symbols-outlined absolute top-60 px-2"
+        >
+          {showPassword ? "visibility_off" : "visibility"}
+        </span>
         <p className="text-red-500 font-bold text-xl">{errorMessage}</p>
         <button
           onClick={handleButtonClick}
