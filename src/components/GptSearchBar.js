@@ -30,7 +30,7 @@ const GptSearchBar = () => {
         messages: [{ role: "user", content: gptQuery }],
         model: "gpt-3.5-turbo",
       });
-      const gptMovies = (data?.choices?.[0]?.message.content).split(",");
+      const gptMovies = (data?.choices?.[0]?.message?.content).split(",");
 
       const promiseArray = gptMovies.map((movie) => fetchMoviesTMDB(movie));
 
