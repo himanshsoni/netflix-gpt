@@ -15,6 +15,6 @@ Home Page
 
 ![image](https://github.com/himanshsoni/netflix-gpt/assets/49721620/fcd43fb6-588d-4fcf-9e4f-616fe8c3af08)
 
-GPT Search Page
+GPT Search Page (Used GPT(OPENAI API) for user input movie recommendation)
 
 ![image](https://github.com/himanshsoni/netflix-gpt/assets/49721620/77e33d55-17e9-41bd-a27d-1628cfbd92ed)
